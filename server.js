@@ -3,7 +3,9 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const { exec } = require('child-process-promise');
- 
+const cors = require('cors')
+
+app.use(cors())
 app.use(bodyParser.urlencoded({
   extended: true
 }));
