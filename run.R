@@ -1,9 +1,17 @@
+#!/usr/bin/env Rscript
 #setwd("/Users/jonathan/Desktop/maestria/15_02/entregable/")
-library(shiny)
+#library(shiny)
+args = commandArgs(trailingOnly=TRUE)
 
-
-var_estado <- 'Colima'
+var_estado <- 'Colima';
 var_temperatura <- 40;
+
+
+if (length(args)==2) {
+  print(args);
+  var_estado <- args[1]
+  var_temperatura <- as.numeric(args[2])
+}
 
 ds = read.csv("tresestados2017.csv", header = TRUE)
 ds$electricidad<-ds$electricidad/1000000 #Kwh -> Gwh
@@ -21,10 +29,10 @@ resultado <- pred.int[1]
 resultado
 
 
-port <- Sys.getenv('PORT')
+#port <- Sys.getenv('PORT')
 
-shiny::runApp(
-  appDir = getwd(),
-  host = '0.0.0.0',
-  port = as.numeric(port)
-)
+#shiny::runApp(
+#  appDir = getwd(),
+#  host = '0.0.0.0',
+#  port = as.numeric(port)
+#)
