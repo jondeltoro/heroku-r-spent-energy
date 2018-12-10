@@ -1,4 +1,6 @@
 #setwd("/Users/jonathan/Desktop/maestria/15_02/entregable/")
+library(shiny)
+
 
 var_estado <- 'Colima'
 var_temperatura <- 40;
@@ -18,3 +20,11 @@ resultado <- pred.int[1]
 
 resultado
 
+
+port <- Sys.getenv('PORT')
+
+shiny::runApp(
+  appDir = getwd(),
+  host = '0.0.0.0',
+  port = as.numeric(port)
+)
