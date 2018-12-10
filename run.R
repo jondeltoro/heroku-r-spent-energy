@@ -8,7 +8,6 @@ var_temperatura <- 40;
 
 
 if (length(args)==2) {
-  print(args);
   var_estado <- args[1]
   var_temperatura <- as.numeric(args[2])
 }
